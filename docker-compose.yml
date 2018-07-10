@@ -12,9 +12,10 @@ services:
      MYSQL_PASSWORD: wordpress
 
   wordpress:
+    build:
+      context: .    
     depends_on:
       - db
-    image: wordpress:4.6
     volumes:
       - ./wp-content:/var/www/html/wp-content 
     ports:
@@ -30,6 +31,8 @@ services:
     depends_on:
       - wordpress
       - db   
+    volumes: 
+      - wordpress
            
 volumes:
   db_data:

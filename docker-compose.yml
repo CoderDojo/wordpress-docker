@@ -12,8 +12,7 @@ services:
      MYSQL_PASSWORD: wordpress
 
   wordpress:
-    build:
-      context: .    
+    build: .    
     depends_on:
       - db
     volumes:
@@ -24,15 +23,17 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress 
+    command: 
+      - apache2-get-cd-theme.sh  
 
   wpcli:
     image: tatemz/wp-cli
     depends_on:
       - wordpress
       - db   
-    volumes: 
-      - wordpress
+    # volumes: 
+    #   - wordpress
            
 volumes:
   db_data:

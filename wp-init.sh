@@ -1,17 +1,24 @@
-#!/bin/bash
 echo "Installed wordpress. Will now copy over cd-theme..."
-# copy cd-theme
 cp -R ~/tmp/cd-theme /var/www/html/wp-content/themes/cd-theme
 echo "Copied cd-theme"
 
-echo "Installing plugins"
-#ensure plugins work
+wp core install --url="http://localhost:8000/"  --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
 
-echo "login as wordpress user (su - wordpress command)"
-su - wordpress
-wp --info
-# wp plugin install https://github.com/humanmade/S3-Uploads/archive/master.zip
-# wp core install —url=http://localhost:8000/ —title=Your_Blog_Title —admin_user=username —admin_password=password —admin_email=your_email.com
+wp plugin install timber-library --version=1.3.3 --activate --allow-root
+wp plugin install pods --version=2.6.11 --activate --allow-root
+wp plugin install antispam-bee --version=2.7.1 --activate --allow-root
+wp plugin install caldera-forms --version=1.5.2.1 --activate --allow-root
+wp plugin install contact-form-7 --version=4.8 --activate --allow-root
+wp plugin install custom-share-buttons-with-floating-sidebar --version=3.3 --activate --allow-root
+wp plugin install google-captcha --version=1.33 --activate --allow-root
+wp plugin install google-sitemap-generator --version=4.0.9 --activate --allow-root
+wp plugin install wonderm00ns-simple-facebook-open-graph-tags --version=2.2.4.1 --activate --allow-root
+wp plugin install redirection --version=2.8 --activate --allow-root
+wp plugin install tablepress --version=1.8.1 --activate --allow-root
+wp plugin install wp-mail-smtp --version=0.10.1 --activate --allow-root
+wp plugin install wp-super-cache --version=1.6.2 --activate --allow-root
+wp plugin install sucuri-scanner --version=1.8.11 --activate --allow-root
+wp plugin install https://github.com/humanmade/S3-Uploads/archive/master.zip --allow-root
 
-# execute apache
-exec "apache2-foreground"
+wp theme activate cd-theme --allow-root
+exec "$@"

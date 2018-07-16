@@ -2,7 +2,15 @@ echo "Installed wordpress. Will now copy over cd-theme..."
 cp -R ~/tmp/cd-theme /var/www/html/wp-content/themes/cd-theme
 echo "Copied cd-theme"
 
-wp core install --url="http://localhost:8000/"  --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
+echo "Extend wp-config"
+wp config set S3_UPLOADS_BUCKET "$WP_S3_BUCKET" --type=constant --allow-root
+wp config set S3_UPLOADS_KEY "$WP_S3_KEY" --type=constant --allow-root
+wp config set S3_UPLOADS_SECRET "$WP_S3_SECRET" --type=constant --allow-root
+wp config set S3_UPLOADS_REGION "$WP_S3_REGION" --type=constant --allow-root
+wp config set S3_UPLOADS_BUCKET_URL "$WP_S3_URL" --type=constant --allow-root
+echo "Extend with s3-upload conf"
+
+wp core install --url="http://localhost:8000/" --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
 
 wp plugin is-installed hello --allow-root
 if [ $? -eq 0 ]

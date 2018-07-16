@@ -15,8 +15,6 @@ services:
     build: .    
     depends_on:
       - db
-    volumes:
-      - ./wp-content:/var/www/html/wp-content 
     ports:
       - "8000:80"
     restart: always
@@ -24,6 +22,11 @@ services:
       WORDPRESS_DB_HOST: db:3306
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress 
+      WP_S3_BUCKET: wp-static.coderdojo.com
+      WP_S3_KEY: muhsecret
+      WP_S3_SECRET: muhsecret
+      WP_S3_REGION: eu-west-1
+      WP_S3_URL: https://wp-static.coderdojo.com
 
 volumes:
   db_data:

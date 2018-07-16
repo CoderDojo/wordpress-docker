@@ -4,6 +4,18 @@ echo "Copied cd-theme"
 
 wp core install --url="http://localhost:8000/"  --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
 
+wp plugin is-installed hello --allow-root
+if [ $? -eq 0 ]
+then
+  wp plugin delete hello --allow-root
+fi
+
+wp plugin is-installed akismet --allow-root
+if [ $? -eq 0 ]
+then
+  wp plugin delete akismet --allow-root
+fi
+
 wp plugin install timber-library --version=1.3.3 --activate --allow-root
 wp plugin install pods --version=2.6.11 --activate --allow-root
 wp plugin install antispam-bee --version=2.7.1 --activate --allow-root
@@ -18,7 +30,7 @@ wp plugin install tablepress --version=1.8.1 --activate --allow-root
 wp plugin install wp-mail-smtp --version=0.10.1 --activate --allow-root
 wp plugin install wp-super-cache --version=1.6.2 --activate --allow-root
 wp plugin install sucuri-scanner --version=1.8.11 --activate --allow-root
-wp plugin install https://github.com/humanmade/S3-Uploads/archive/master.zip --allow-root
+wp plugin install https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip --activate --allow-root
 
 wp theme activate cd-theme --allow-root
 exec "$@"

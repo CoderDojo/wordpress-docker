@@ -39,6 +39,7 @@ wp plugin install wp-mail-smtp --force --version=0.10.1 --activate --allow-root
 wp plugin install wp-super-cache --force --version=1.6.2 --activate --allow-root
 wp plugin install sucuri-scanner --force --version=1.8.11 --activate --allow-root
 wp plugin install https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip --force --activate --allow-root
+wp s3-uploads enable
 
 wp theme activate cd-theme --allow-root
 exec "$@"

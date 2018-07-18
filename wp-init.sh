@@ -1,7 +1,7 @@
 echo "Extend wp-config"
 wp config set S3_UPLOADS_BUCKET "$WP_S3_BUCKET" --type=constant --allow-root
-wp config set S3_UPLOADS_KEY "$WP_S3_KEY" --type=constant --allow-root
-wp config set S3_UPLOADS_SECRET "$WP_S3_SECRET" --type=constant --allow-root
+wp config set S3_UPLOADS_KEY "${WP_S3_KEY-}" --type=constant --allow-root --quiet
+wp config set S3_UPLOADS_SECRET "${WP_S3_SECRET-}" --type=constant --allow-root --quiet
 wp config set S3_UPLOADS_REGION "$WP_S3_REGION" --type=constant --allow-root
 wp config set S3_UPLOADS_BUCKET_URL "$WP_S3_URL" --type=constant --allow-root
 echo "Extend with s3-upload conf"
@@ -35,6 +35,12 @@ wp plugin activate wp-mail-smtp --allow-root
 wp plugin activate wp-super-cache --allow-root
 wp plugin activate sucuri-scanner --allow-root
 wp plugin activate S3-Uploads --allow-root
+if [[ -n "${WP_S3_SECRET-}" ]]
+then
+  wp plugin activate S3-Uploads --allow-root
+  wp s3-uploads verify --allow-root
+  wp s3-uploads enable --allow-root
+fi
 
 wp theme activate cd-theme --allow-root
 exec "$@"

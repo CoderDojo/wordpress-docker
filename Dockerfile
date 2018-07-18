@@ -48,6 +48,9 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /
 # wp-mail-smtp v0.10.1
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip
 
+COPY .htaccess /usr/src/wordpress/.htaccess
+RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess
+
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
 RUN chmod +x ~/tmp/wp-cli.phar
 RUN mv ~/tmp/wp-cli.phar /usr/local/bin/wp

@@ -24,7 +24,7 @@ services:
       WORDPRESS_DB_PASSWORD: wordpress 
       WP_S3_BUCKET: wp-static.coderdojo.com
       WP_S3_KEY: muhsecret
-      WP_S3_SECRET: muhsecret
+      WP_S3_SECRET:
       WP_S3_REGION: eu-west-1
       WP_S3_URL: https://wp-static.coderdojo.com
 

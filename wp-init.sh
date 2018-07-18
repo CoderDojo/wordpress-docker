@@ -42,4 +42,5 @@ then
 fi
 
 wp theme activate cd-theme --allow-root
+chown -R "www-data:www-data" /var/www/html/wp-content
 exec "$@"

@@ -34,7 +34,6 @@ wp plugin activate wonderm00ns-simple-facebook-open-graph-tags --allow-root
 wp plugin activate wp-mail-smtp --allow-root
 wp plugin activate wp-super-cache --allow-root
 wp plugin activate sucuri-scanner --allow-root
-wp plugin activate S3-Uploads --allow-root
 if [[ -n "${WP_S3_SECRET-}" ]]
 then
   wp plugin activate S3-Uploads --allow-root

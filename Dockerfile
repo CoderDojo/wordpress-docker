@@ -1,4 +1,4 @@
-FROM wordpress:latest
+FROM wordpress:4.9.7-php7.1-apache
 RUN apt-get update && apt-get install -y git wget sudo unzip && git clone https://github.com/CoderDojo/cd-theme.git /usr/src/wordpress/wp-content/themes/cd-theme
 COPY wp-init.sh /usr/local/bin/wp-init.sh
 RUN chmod +x /usr/local/bin/wp-init.sh

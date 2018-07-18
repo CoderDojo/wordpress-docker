@@ -1,9 +1,54 @@
 FROM wordpress:latest
-RUN apt-get update && apt-get install -y git wget sudo && git clone https://github.com/CoderDojo/cd-theme.git ~/tmp/cd-theme
+RUN apt-get update && apt-get install -y git wget sudo unzip && git clone https://github.com/CoderDojo/cd-theme.git /usr/src/wordpress/wp-content/themes/cd-theme
 COPY wp-init.sh /usr/local/bin/wp-init.sh
 RUN chmod +x /usr/local/bin/wp-init.sh
 
-RUN wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
+# antispam bee 2.7.1
+RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.7.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/antispam-bee.2.7.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/antispam-bee.2.7.1.zip
+
+# caldera forms v1.5.2.1
+RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.5.2.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip
+
+# contact form 7 v4.8
+RUN wget -q https://downloads.wordpress.org/plugin/contact-form-7.4.8.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/contact-form-7.4.8.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/contact-form-7.4.8.zip
+
+# custom share buttons with floating sidebar v3.3
+RUN wget -q https://downloads.wordpress.org/plugin/custom-share-buttons-with-floating-sidebar.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/custom-share-buttons-with-floating-sidebar.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/custom-share-buttons-with-floating-sidebar.3.3.zip
+
+# google captcha by bestwebsoft v1.33
+RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.33.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip
+
+# google xml sitemaps v4.0.9
+RUN wget -q https://downloads.wordpress.org/plugin/google-sitemap-generator.4.0.9.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-sitemap-generator.4.0.9.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-sitemap-generator.4.0.9.zip
+
+# pods v2.6.11
+RUN wget -q https://downloads.wordpress.org/plugin/pods.2.6.11.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/pods.2.6.11.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/pods.2.6.11.zip
+
+# redirection v2.8
+RUN wget -q https://downloads.wordpress.org/plugin/redirection.2.8.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/redirection.2.8.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/redirection.2.8.zip
+
+# S3 Uploads
+RUN wget -q https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip -d /usr/src/wordpress/wp-content/plugins && mv /usr/src/wordpress/wp-content/plugins/S3-Uploads-f9f09b1ead9e07032ee1eb406a237b1273fe55ed /usr/src/wordpress/wp-content/plugins/S3-Uploads && rm /usr/src/wordpress/wp-content/plugins/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip
+
+# sucuri security v1.8.11
+RUN wget -q https://downloads.wordpress.org/plugin/sucuri-scanner.1.8.11.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.11.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.11.zip
+
+# tablepress v1.8.1
+RUN wget -q https://downloads.wordpress.org/plugin/tablepress.1.8.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/tablepress.1.8.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/tablepress.1.8.1.zip
+
+# timber v1.3.3
+RUN wget -q https://downloads.wordpress.org/plugin/timber-library.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/timber-library.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/timber-library.1.3.3.zip
+
+# wondermo00ns open graph v2.2.4.1
+RUN wget -q https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip
+
+# wp super cache v1.6.2
+RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip 
+
+# wp-mail-smtp v0.10.1
+RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip
+
+RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
 RUN chmod +x ~/tmp/wp-cli.phar
 RUN mv ~/tmp/wp-cli.phar /usr/local/bin/wp
 RUN wp --info

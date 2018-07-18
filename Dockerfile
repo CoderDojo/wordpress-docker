@@ -51,6 +51,12 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /u
 COPY .htaccess /usr/src/wordpress/.htaccess
 RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess
 
+RUN mkdir /var/log/sucuri
+COPY confs/sucuri-settings.php /var/log/sucuri/sucuri-settings.php
+COPY confs/sucuri-wp-content-htaccess /usr/src/wordpress/wp-content/.htaccess
+COPY confs/sucuri-wp-includes-htaccess /usr/src/wordpress/wp-includes/.htaccess
+RUN rm /usr/src/wordpress/readme.html
+
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
 RUN chmod +x ~/tmp/wp-cli.phar
 RUN mv ~/tmp/wp-cli.phar /usr/local/bin/wp

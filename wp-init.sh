@@ -41,7 +41,7 @@ wp plugin install sucuri-scanner --force --version=1.8.11 --activate --allow-roo
 wp plugin install https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip --force --allow-root
 if [[ -n "${WP_S3_SECRET-}" ]]
 then
-  wp plugin activate s3-uploads --allow-root
+  wp plugin activate S3-Uploads --allow-root
   wp s3-uploads verify --allow-root
   wp s3-uploads enable --allow-root
 fi

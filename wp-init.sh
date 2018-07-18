@@ -4,8 +4,8 @@ echo "Copied cd-theme"
 
 echo "Extend wp-config"
 wp config set S3_UPLOADS_BUCKET "$WP_S3_BUCKET" --type=constant --allow-root
-wp config set S3_UPLOADS_KEY "$WP_S3_KEY" --type=constant --allow-root
-wp config set S3_UPLOADS_SECRET "$WP_S3_SECRET" --type=constant --allow-root
+wp config set S3_UPLOADS_KEY "${WP_S3_KEY-}" --type=constant --allow-root --quiet
+wp config set S3_UPLOADS_SECRET "${WP_S3_SECRET-}" --type=constant --allow-root --quiet
 wp config set S3_UPLOADS_REGION "$WP_S3_REGION" --type=constant --allow-root
 wp config set S3_UPLOADS_BUCKET_URL "$WP_S3_URL" --type=constant --allow-root
 echo "Extend with s3-upload conf"
@@ -38,10 +38,11 @@ wp plugin install tablepress --force --version=1.8.1 --activate --allow-root
 wp plugin install wp-mail-smtp --force --version=0.10.1 --activate --allow-root
 wp plugin install wp-super-cache --force --version=1.6.2 --activate --allow-root
 wp plugin install sucuri-scanner --force --version=1.8.11 --activate --allow-root
-wp plugin install https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip --force --activate --allow-root
-wp s3-uploads verify --allow-root || true
-if [ $? -eq 0 ]
+wp plugin install https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip --force --allow-root
+if [[ -n "${WP_S3_SECRET-}" ]]
 then
+  wp plugin activate s3-uploads --allow-root
+  wp s3-uploads verify --allow-root
   wp s3-uploads enable --allow-root
 fi
 

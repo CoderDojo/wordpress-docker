@@ -13,3 +13,9 @@
 
 </IfModule>
 # END WordPress
+
+# Block WordPress xmlrpc.php requests
+<Files xmlrpc.php>
+order allow,deny
+deny from all
+</Files>

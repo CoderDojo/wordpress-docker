@@ -33,7 +33,6 @@ fi
 wp plugin activate wp-super-cache --allow-root
 wp plugin activate antispam-bee --allow-root
 wp plugin activate caldera-forms --allow-root
-wp option update _caldera_forms_forms '{"CF57d7e56b49ac6":"CF57d7e56b49ac6"}' --format=json --allow-root
 wp plugin activate contact-form-7 --allow-root
 wp plugin activate custom-share-buttons-with-floating-sidebar --allow-root
 wp plugin activate google-captcha --allow-root
@@ -50,6 +49,8 @@ wp plugin activate sucuri-scanner --allow-root
 
 chown -R "www-data:www-data" /var/log/sucuri
 chmod -R 755 /var/log/sucuri
+# Retrigger starting hooks by de-activating our plugin
+wp plugin deactivate activator --allow-root
 wp plugin activate activator --allow-root
 
 if [[ -n "${WP_S3_SECRET-}" ]]

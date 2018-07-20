@@ -1,10 +1,14 @@
 # wordpress-docker
 Image to setup wordpress in production with versioned plugins
 
-The image will contains all plugins as well as cd-theme
-
 ## User
 wordpress:wordpress
 
-## On load:  
-Load the caldera form from confs to have the contact form
+## Refreshin plugin confs
+ - WP-super-cache : 
+    Copy content of the wp-content/wp-cache-config
+    Verify the .htaccess-es
+    Verify the answer is cached
+    Verify the crons are running
+ - Caldera form 
+    Export from prod into the json

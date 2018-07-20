@@ -57,6 +57,14 @@ COPY confs/sucuri-wp-content-htaccess /usr/src/wordpress/wp-content/.htaccess
 COPY confs/sucuri-wp-includes-htaccess /usr/src/wordpress/wp-includes/.htaccess
 RUN rm /usr/src/wordpress/readme.html
 
+RUN mkdir /usr/src/wordpress/wp-content/cache
+COPY confs/wp-super-cache.php /usr/src/wordpress/wp-content/wp-cache-config.php
+RUN chown "www-data:www-data" /usr/src/wordpress/wp-content/wp-cache-config.php
+COPY confs/wp-supercache-htaccess /usr/src/wordpress/wp-content/cache/.htaccess
+COPY plugins/activator /usr/src/wordpress/wp-content/plugins/activator
+
+COPY confs/php.ini /usr/local/etc/php/conf.d/php.ini
+
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
 RUN chmod +x ~/tmp/wp-cli.phar
 RUN mv ~/tmp/wp-cli.phar /usr/local/bin/wp

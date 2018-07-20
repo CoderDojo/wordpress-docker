@@ -33,6 +33,7 @@ fi
 wp plugin activate wp-super-cache --allow-root
 wp plugin activate antispam-bee --allow-root
 wp plugin activate caldera-forms --allow-root
+wp option set _caldera_forms_forms 'a:1:{s:15:"CF57d7e56b49ac6";s:15:"CF57d7e56b49ac6";}' --allow-root
 wp plugin activate contact-form-7 --allow-root
 wp plugin activate custom-share-buttons-with-floating-sidebar --allow-root
 wp plugin activate google-captcha --allow-root

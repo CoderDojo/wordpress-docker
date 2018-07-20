@@ -13,6 +13,7 @@ echo "Extended with Sucuri defaults"
 wp config set WP_CACHE "true" --type=constant --allow-root
 wp config set WPCACHEHOME "/var/www/html/wp-content/plugins/wp-super-cache/" --type=constant --allow-root
 echo "Extended with wp-super-cache defaults"
+wp config set WP_STRIPE_KEY "${WP_STRIPE_KEY-}" --type=constant --allow-root
 
 wp core install --url="http://localhost:8000/" --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
 

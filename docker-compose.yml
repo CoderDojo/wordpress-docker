@@ -27,6 +27,7 @@ services:
       WP_S3_SECRET:
       WP_S3_REGION: eu-west-1
       WP_S3_URL: https://wp-static.coderdojo.com
+      WP_STRIPE_KEY: fundmeimfamous
 
 volumes:
   db_data:

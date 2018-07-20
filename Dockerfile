@@ -48,6 +48,11 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /
 # wp-mail-smtp v0.10.1
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip
 
+# stripe 6.3.0
+RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip
+COPY plugins/donation/payment.php /usr/src/wordpress/payment.php
+
+
 COPY .htaccess /usr/src/wordpress/.htaccess
 RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess
 

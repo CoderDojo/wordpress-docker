@@ -10,5 +10,3 @@ wordpress:wordpress
     Verify the .htaccess-es
     Verify the answer is cached
     Verify the crons are running
- - Caldera form 
-    Export from prod into the json

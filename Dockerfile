@@ -55,8 +55,6 @@ RUN wget -q https://downloads.wordpress.org/plugin/wordpress-importer.0.6.3.zip 
 RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip
 COPY plugins/donation/payment.php /usr/src/wordpress/payment.php
 
-
-
 COPY .htaccess /usr/src/wordpress/.htaccess
 RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess
 

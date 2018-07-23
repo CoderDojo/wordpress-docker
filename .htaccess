@@ -2,6 +2,9 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  RewriteCond %{REQUEST_URI} ^/start(?:\/?)$
+  RewriteRule .* "https://zen.coderdojo.com/start-dojo" [L,R=permanent]
   
   # ELB to HTTPS
   RewriteCond %{HTTP:X-Forwarded-Proto} =http

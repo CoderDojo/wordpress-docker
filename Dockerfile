@@ -9,12 +9,6 @@ RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.7.1.zip -P /us
 # caldera forms v1.5.2.1
 RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.5.2.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip
 
-# contact form 7 v4.8
-RUN wget -q https://downloads.wordpress.org/plugin/contact-form-7.4.8.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/contact-form-7.4.8.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/contact-form-7.4.8.zip
-
-# custom share buttons with floating sidebar v3.3
-RUN wget -q https://downloads.wordpress.org/plugin/custom-share-buttons-with-floating-sidebar.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/custom-share-buttons-with-floating-sidebar.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/custom-share-buttons-with-floating-sidebar.3.3.zip
-
 # google captcha by bestwebsoft v1.33
 RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.33.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip
 
@@ -47,9 +41,6 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /
 
 # wp-mail-smtp v0.10.1
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip
-
-# wp-importer 0.6.3
-RUN wget -q https://downloads.wordpress.org/plugin/wordpress-importer.0.6.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wordpress-importer.0.6.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wordpress-importer.0.6.3.zip
 
 # stripe 6.3.0
 RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip

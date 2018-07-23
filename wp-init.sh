@@ -34,8 +34,6 @@ fi
 wp plugin activate wp-super-cache --allow-root
 wp plugin activate antispam-bee --allow-root
 wp plugin activate caldera-forms --allow-root
-wp plugin activate contact-form-7 --allow-root
-wp plugin activate custom-share-buttons-with-floating-sidebar --allow-root
 wp plugin activate google-captcha --allow-root
 wp plugin activate google-sitemap-generator --allow-root
 wp plugin activate pods --allow-root
@@ -44,7 +42,6 @@ wp plugin activate tablepress --allow-root
 wp plugin activate timber-library --allow-root
 wp plugin activate wonderm00ns-simple-facebook-open-graph-tags --allow-root
 wp plugin activate wp-mail-smtp --allow-root
-wp plugin activate wordpress-importer --allow-root
 wp plugin activate sucuri-scanner --allow-root
 # Recommended plugin to check if the wp-super-cache cron are running
 # wp plugin install cron-view --activate --allow-root

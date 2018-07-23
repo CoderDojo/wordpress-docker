@@ -42,6 +42,9 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /
 # wp-mail-smtp v1.3.3
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip
 
+# sassy-social-share v3.2.2 (3.2.3 is available but not published)
+RUN wget -q https://downloads.wordpress.org/plugin/sassy-social-share.3.2.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/sassy-social-share.3.2.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/sassy-social-share.3.2.2.zip
+
 # stripe 6.3.0
 RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip
 COPY plugins/donation/payment.php /usr/src/wordpress/payment.php

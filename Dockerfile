@@ -3,44 +3,44 @@ RUN apt-get update && apt-get install -y git wget sudo unzip && git clone https:
 COPY wp-init.sh /usr/local/bin/wp-init.sh
 RUN chmod +x /usr/local/bin/wp-init.sh
 
-# antispam bee 2.7.1
-RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.7.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/antispam-bee.2.7.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/antispam-bee.2.7.1.zip
+# antispam bee 2.8.1
+RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.8.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/antispam-bee.2.8.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/antispam-bee.2.8.1.zip
 
-# caldera forms v1.5.2.1
-RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.5.2.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.5.2.1.zip
+# caldera forms v1.7.2
+RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.7.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip
 
-# google captcha by bestwebsoft v1.33
-RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.33.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.33.zip
+# google captcha by bestwebsoft v1.36
+RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.36.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip
 
 # google xml sitemaps v4.0.9
 RUN wget -q https://downloads.wordpress.org/plugin/google-sitemap-generator.4.0.9.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-sitemap-generator.4.0.9.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-sitemap-generator.4.0.9.zip
 
-# pods v2.6.11
-RUN wget -q https://downloads.wordpress.org/plugin/pods.2.6.11.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/pods.2.6.11.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/pods.2.6.11.zip
+# pods v2.7.6
+RUN wget -q https://downloads.wordpress.org/plugin/pods.2.7.6.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/pods.2.7.6.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/pods.2.7.6.zip
 
-# redirection v2.8
-RUN wget -q https://downloads.wordpress.org/plugin/redirection.2.8.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/redirection.2.8.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/redirection.2.8.zip
+# redirection v3.4
+RUN wget -q https://downloads.wordpress.org/plugin/redirection.3.4.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/redirection.3.4.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/redirection.3.4.zip
 
 # S3 Uploads
 RUN wget -q https://github.com/humanmade/S3-Uploads/archive/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip -d /usr/src/wordpress/wp-content/plugins && mv /usr/src/wordpress/wp-content/plugins/S3-Uploads-f9f09b1ead9e07032ee1eb406a237b1273fe55ed /usr/src/wordpress/wp-content/plugins/S3-Uploads && rm /usr/src/wordpress/wp-content/plugins/f9f09b1ead9e07032ee1eb406a237b1273fe55ed.zip
 
-# sucuri security v1.8.11
-RUN wget -q https://downloads.wordpress.org/plugin/sucuri-scanner.1.8.11.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.11.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.11.zip
+# sucuri security v1.8.18
+RUN wget -q https://downloads.wordpress.org/plugin/sucuri-scanner.1.8.18.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.18.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/sucuri-scanner.1.8.18.zip
 
-# tablepress v1.8.1
-RUN wget -q https://downloads.wordpress.org/plugin/tablepress.1.8.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/tablepress.1.8.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/tablepress.1.8.1.zip
+# tablepress v1.9
+RUN wget -q https://downloads.wordpress.org/plugin/tablepress.1.9.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/tablepress.1.9.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/tablepress.1.9.zip
 
-# timber v1.3.3
-RUN wget -q https://downloads.wordpress.org/plugin/timber-library.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/timber-library.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/timber-library.1.3.3.zip
+# timber v1.7.1
+RUN wget -q https://downloads.wordpress.org/plugin/timber-library.1.7.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/timber-library.1.7.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/timber-library.1.7.1.zip
 
-# wondermo00ns open graph v2.2.4.1
-RUN wget -q https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.1.zip
+# wondermo00ns open graph v2.2.4.2
+RUN wget -q https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip
 
 # wp super cache v1.6.2
 RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip 
 
-# wp-mail-smtp v0.10.1
-RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.0.10.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.0.10.1.zip
+# wp-mail-smtp v1.3.3
+RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip
 
 # stripe 6.3.0
 RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip

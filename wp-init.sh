@@ -44,8 +44,9 @@ wp plugin activate wonderm00ns-simple-facebook-open-graph-tags --allow-root
 wp plugin activate wp-mail-smtp --allow-root
 wp plugin activate sassy-social-share --allow-root
 wp plugin activate sucuri-scanner --allow-root
-# Recommended plugin to check if the wp-super-cache cron are running
+# Recommended plugins for dev 
 # wp plugin install cron-view --activate --allow-root
+# wp plugin install user-role-editor --activate --allow-root
 
 chown -R "www-data:www-data" /var/log/sucuri
 chmod -R 755 /var/log/sucuri

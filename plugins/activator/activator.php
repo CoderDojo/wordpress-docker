@@ -8,16 +8,16 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              http://example.com
+ * @link              https://github.com/CoderDojo/wordpress-docker
  * @since             1.0.0
- * @package           Plugin_Name
+ * @package           CD_Activator
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
- * Plugin URI:        http://example.com/plugin-name-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Plugin Name:       cd_activator
+ * Plugin URI:        https://github.com/CoderDojo/wordpress-docker
+ * Description:       Manual startup of plugins
  * Version:           1.0.0
- * Author:            Your Name or Your Company
+ * Author:            Wardormeur
  * Author URI:        http://example.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
@@ -37,19 +37,78 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'activator', '1.0.0' );
 
+function set_cdf_role() {
+  global $wp_roles;
+  $adm = $wp_roles->get_role('administrator');
+  add_role('CDF', 'Admin without plugin management', $adm->capabilities);
+  $cdf = $wp_roles->get_role('CDF');
+  if ($cdf) {
+    $caps = array(
+      // Plugins
+      'activate_plugins',
+      'delete_plugins',
+      'edit_plugins',
+      'install_plugins',
+      'update_plugins',
+      'upload_plugins',
+      // Pods
+      'pods',
+      'pods_content',
+      // General
+      'manage_links',
+      'export',
+      'import',
+      'manage_links',
+      'manage_options',
+      'update_core',
+      'edit_files',
+      // Themes
+      'delete_themes',
+      'edit_theme_options',
+      'edit_themes',
+      'install_themes',
+      'switch_themes',
+      'update_themes',
+      'upload_themes',
+      // Users
+      'promote_users',
+      'create_users',
+      'remove_users',
+      'delete_users',
+      // Super-admin
+      'create_sites',
+      'delete_sites',
+      'manage_network',
+      'manage_sites',
+      'manage_network_users',
+      'manage_network_plugins',
+      'manage_network_themes',
+      'manage_network_options',
+      'upgrade_network',
+      'setup_network',
+    );
+
+    foreach ( $caps as $cap ) {
+      // Remove the capability.
+      $cdf->remove_cap( $cap );
+    }
+  }
+}
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-plugin-name-activator.php
  */
 function activate_activator() {
-  	global $cache_scheduled_time, $cache_schedule_interval;
-    if ( false == wp_next_scheduled('wp_cache_gc') ) {
-      wp_schedule_single_event( time() + $cache_time_interval, 'wp_cache_gc' );
-    }
-    if ( false == wp_next_scheduled( 'wp_cache_gc_watcher' ) ) {
-      wp_schedule_event( time()+600, 'hourly', 'wp_cache_gc_watcher' );
-    }
-    wp_schedule_single_event( time(), 'wp_cache_full_preload_hook' );
+  global $cache_scheduled_time, $cache_schedule_interval;
+  if ( false == wp_next_scheduled('wp_cache_gc') ) {
+    wp_schedule_single_event( time() + $cache_time_interval, 'wp_cache_gc' );
+  }
+  if ( false == wp_next_scheduled( 'wp_cache_gc_watcher' ) ) {
+    wp_schedule_event( time()+600, 'hourly', 'wp_cache_gc_watcher' );
+  }
+  wp_schedule_single_event( time(), 'wp_cache_full_preload_hook' );
+  set_cdf_role();
 }
 
 /**

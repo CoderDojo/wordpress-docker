@@ -8,9 +8,9 @@ wp config set S3_UPLOADS_BUCKET_URL "$WP_S3_URL" --type=constant --allow-root
 echo "Extend with s3-upload conf"
 # TODO : EFS to share the logs between instances of WP
 wp config set SUCURI_DATA_STORAGE "/var/log/sucuri" --type=constant --allow-root
-wp config set DISALLOW_FILE_EDIT "true" --type=constant --allow-root;
+wp config set DISALLOW_FILE_EDIT true --type=constant --raw --allow-root;
 echo "Extended with Sucuri defaults"
-wp config set WP_CACHE "true" --type=constant --allow-root
+wp config set WP_CACHE true --type=constant --raw --allow-root
 wp config set WPCACHEHOME "/var/www/html/wp-content/plugins/wp-super-cache/" --type=constant --allow-root
 echo "Extended with wp-super-cache defaults"
 wp config set WP_STRIPE_KEY "${WP_STRIPE_KEY-}" --type=constant --allow-root

@@ -58,10 +58,13 @@ COPY confs/sucuri-wp-content-htaccess /usr/src/wordpress/wp-content/.htaccess
 COPY confs/sucuri-wp-includes-htaccess /usr/src/wordpress/wp-includes/.htaccess
 RUN rm /usr/src/wordpress/readme.html
 
+RUN a2enmod headers
+
 RUN mkdir /usr/src/wordpress/wp-content/cache
 COPY confs/wp-super-cache.php /usr/src/wordpress/wp-content/wp-cache-config.php
 RUN chown "www-data:www-data" /usr/src/wordpress/wp-content/wp-cache-config.php
 COPY confs/wp-supercache-htaccess /usr/src/wordpress/wp-content/cache/.htaccess
+#COPY confs/wp-super-cache-advanced.php /usr/src/wordpress/wp-content/advanced-cache.php
 COPY plugins/activator /usr/src/wordpress/wp-content/plugins/activator
 
 COPY confs/php.ini /usr/local/etc/php/conf.d/php.ini

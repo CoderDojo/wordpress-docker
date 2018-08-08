@@ -9,6 +9,10 @@
   # ELB to HTTPS
   RewriteCond %{HTTP:X-Forwarded-Proto} =http
   RewriteRule .* https://%{HTTP:Host}%{REQUEST_URI} [L,R=permanent]
+  
+  # Fix old permalink scheme
+  RewriteCond %{REQUEST_URI} ^/news/(.+)$
+  RewriteRule .* /%1 [R=permanent]
 
   # wp-supercache config
   AddDefaultCharset UTF-8

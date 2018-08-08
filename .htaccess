@@ -12,7 +12,7 @@
   
   # Fix old permalink scheme
   RewriteCond %{REQUEST_URI} ^/news/(.+)$
-  RewriteRule .* /%1 [R=permanent]
+  RewriteRule .* /%1 [L,R=permanent]
 
   # wp-supercache config
   AddDefaultCharset UTF-8

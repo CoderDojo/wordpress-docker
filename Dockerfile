@@ -60,7 +60,6 @@ RUN rm /usr/src/wordpress/readme.html
 
 RUN a2enmod headers
 
-RUN mkdir /usr/src/wordpress/wp-content/cache
 COPY plugins/activator /usr/src/wordpress/wp-content/plugins/activator
 
 COPY confs/php.ini /usr/local/etc/php/conf.d/php.ini

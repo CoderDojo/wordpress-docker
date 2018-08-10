@@ -100,14 +100,6 @@ function set_cdf_role() {
  * This action is documented in includes/class-plugin-name-activator.php
  */
 function activate_activator() {
-  global $cache_scheduled_time, $cache_schedule_interval;
-  if ( false == wp_next_scheduled('wp_cache_gc') ) {
-    wp_schedule_single_event( time() + $cache_time_interval, 'wp_cache_gc' );
-  }
-  if ( false == wp_next_scheduled( 'wp_cache_gc_watcher' ) ) {
-    wp_schedule_event( time()+600, 'hourly', 'wp_cache_gc_watcher' );
-  }
-  wp_schedule_single_event( time(), 'wp_cache_full_preload_hook' );
   set_cdf_role();
 }
 

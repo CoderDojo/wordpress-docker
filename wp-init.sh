@@ -10,9 +10,6 @@ echo "Extend with s3-upload conf"
 wp config set SUCURI_DATA_STORAGE "/var/log/sucuri" --type=constant --allow-root
 wp config set DISALLOW_FILE_EDIT true --type=constant --raw --allow-root;
 echo "Extended with Sucuri defaults"
-wp config set WP_CACHE true --type=constant --raw --allow-root
-wp config set WPCACHEHOME "/var/www/html/wp-content/plugins/wp-super-cache/" --type=constant --allow-root
-echo "Extended with wp-super-cache defaults"
 wp config set WP_STRIPE_KEY "${WP_STRIPE_KEY-}" --type=constant --allow-root
 
 wp core install --url="http://localhost:8000/" --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
@@ -31,9 +28,9 @@ then
   wp plugin delete akismet --allow-root
 fi
 
-wp plugin activate wp-super-cache --allow-root
 wp plugin activate antispam-bee --allow-root
 wp plugin activate caldera-forms --allow-root
+wp plugin activate cachify --allow-root
 wp plugin activate google-captcha --allow-root
 wp plugin activate google-sitemap-generator --allow-root
 wp plugin activate pods --allow-root

@@ -9,6 +9,9 @@ RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.8.1.zip -P /us
 # caldera forms v1.7.2
 RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.7.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip
 
+# cachify v2.2.4
+RUN wget -q https://downloads.wordpress.org/plugin/cachify.2.2.4.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/cachify.2.2.4.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/cachify.2.2.4.zip
+
 # google captcha by bestwebsoft v1.36
 RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.36.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip
 
@@ -36,9 +39,6 @@ RUN wget -q https://downloads.wordpress.org/plugin/timber-library.1.7.1.zip -P /
 # wondermo00ns open graph v2.2.4.2
 RUN wget -q https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip
 
-# wp super cache v1.6.2
-RUN wget -q https://downloads.wordpress.org/plugin/wp-super-cache.1.6.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-super-cache.1.6.2.zip 
-
 # wp-mail-smtp v1.3.3
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip
 
@@ -60,11 +60,6 @@ RUN rm /usr/src/wordpress/readme.html
 
 RUN a2enmod headers
 
-RUN mkdir /usr/src/wordpress/wp-content/cache
-COPY confs/wp-super-cache.php /usr/src/wordpress/wp-content/wp-cache-config.php
-RUN chown "www-data:www-data" /usr/src/wordpress/wp-content/wp-cache-config.php
-COPY confs/wp-supercache-htaccess /usr/src/wordpress/wp-content/cache/.htaccess
-#COPY confs/wp-super-cache-advanced.php /usr/src/wordpress/wp-content/advanced-cache.php
 COPY plugins/activator /usr/src/wordpress/wp-content/plugins/activator
 
 COPY confs/php.ini /usr/local/etc/php/conf.d/php.ini

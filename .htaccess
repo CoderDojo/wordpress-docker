@@ -69,6 +69,7 @@
   
   # Fix old permalink scheme
   RewriteCond %{REQUEST_URI} ^/news/(.+)$
+  RewriteCond %{REQUEST_URI} !^/news/page/(\d+)
   RewriteRule .* /%1 [L,R=permanent]
 
   # Default fallback

@@ -9,8 +9,8 @@ RUN wget -q https://downloads.wordpress.org/plugin/antispam-bee.2.8.1.zip -P /us
 # caldera forms v1.7.2
 RUN wget -q https://downloads.wordpress.org/plugin/caldera-forms.1.7.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/caldera-forms.1.7.2.zip
 
-# cachify v2.2.4
-RUN wget -q https://downloads.wordpress.org/plugin/cachify.2.2.4.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/cachify.2.2.4.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/cachify.2.2.4.zip
+# wp-fastest-cache v0.8.8.3
+RUN wget -q https://downloads.wordpress.org/plugin/wp-fastest-cache.0.8.8.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-fastest-cache.0.8.8.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-fastest-cache.0.8.8.3.zip
 
 # google captcha by bestwebsoft v1.36
 RUN wget -q https://downloads.wordpress.org/plugin/google-captcha.1.36.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/google-captcha.1.36.zip

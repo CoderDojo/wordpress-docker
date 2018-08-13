@@ -8,9 +8,10 @@ wp config set S3_UPLOADS_BUCKET_URL "$WP_S3_URL" --type=constant --allow-root
 echo "Extend with s3-upload conf"
 # TODO : EFS to share the logs between instances of WP
 wp config set SUCURI_DATA_STORAGE "/var/log/sucuri" --type=constant --allow-root
-wp config set DISALLOW_FILE_EDIT true --type=constant --raw --allow-root;
+wp config set DISALLOW_FILE_EDIT true --type=constant --raw --allow-root
 echo "Extended with Sucuri defaults"
 wp config set WP_STRIPE_KEY "${WP_STRIPE_KEY-}" --type=constant --allow-root
+echo "Extended with Stripe creds"
 
 wp core install --url="http://localhost:8000/" --title="Your Blog Title" --admin_user="wordpress" --admin_password="wordpress" --admin_email="wpadmin@example.com"  --allow-root
 
@@ -30,7 +31,7 @@ fi
 
 wp plugin activate antispam-bee --allow-root
 wp plugin activate caldera-forms --allow-root
-wp plugin activate cachify --allow-root
+wp plugin activate wp-fastest-cache --allow-root
 wp plugin activate google-captcha --allow-root
 wp plugin activate google-sitemap-generator --allow-root
 wp plugin activate pods --allow-root
@@ -60,4 +61,6 @@ fi
 
 wp theme activate cd-theme --allow-root
 chown -R "www-data:www-data" /var/www/html/wp-content
+# Avoid overwrite by plugins of .htaccess
+chmod 555 .htaccess
 exec "$@"

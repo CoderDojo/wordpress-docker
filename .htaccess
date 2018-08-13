@@ -13,7 +13,32 @@
   # Fix old permalink scheme
   RewriteCond %{REQUEST_URI} ^/news/(.+)$
   RewriteRule .* /%1 [L,R=permanent]
-  
+
+  # GZIP FILE
+  <IfModule mod_mime.c>
+    RewriteCond %{REQUEST_URI} /$
+    RewriteCond %{REQUEST_URI} !^/(wp-admin|wp-content/cache)/.*
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{QUERY_STRING} ^$
+    RewriteCond %{HTTP_COOKIE} !(wp-postpass|wordpress_logged_in|comment_author)_
+    RewriteCond %{HTTP:Accept-Encoding} gzip
+    RewriteCond /var/www/html/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}index.html.gz -f
+    RewriteRule ^(.*) /var/www/html/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}index.html.gz [L]
+
+    AddType text/html .gz
+    AddEncoding gzip .gz
+  </IfModule>
+
+  # HTML FILE
+  RewriteCond %{REQUEST_URI} /$
+  RewriteCond %{REQUEST_URI} !^/(wp-admin|wp-content/cache)/.*
+  RewriteCond %{REQUEST_METHOD} !POST
+  RewriteCond %{QUERY_STRING} ^$
+  RewriteCond %{HTTP_COOKIE} !(wp-postpass|wordpress_logged_in|comment_author)_
+  RewriteCond /var/www/html/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}index.html -f
+  RewriteRule ^(.*) /var/www/html/wp-content/cache/cachify/%{HTTP_HOST}%{REQUEST_URI}index.html [L]
+
+
   # Default fallback
   RewriteRule ^index\.php$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f

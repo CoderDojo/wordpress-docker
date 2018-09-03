@@ -60,6 +60,12 @@
 </IfModule>
 # END GzipWpFastestCache
 
+# BEGIN CORS
+<IfModule mod_headers.c>
+  Header set Access-Control-Allow-Origin "https://zen.coderdojo.com"
+</IfModule>
+# END CORS
+
 # BEGIN WordPress
 <IfModule mod_rewrite.c>
   RewriteEngine On

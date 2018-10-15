@@ -36,8 +36,8 @@ RUN wget -q https://downloads.wordpress.org/plugin/tablepress.1.9.zip -P /usr/sr
 # timber v1.7.1
 RUN wget -q https://downloads.wordpress.org/plugin/timber-library.1.7.1.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/timber-library.1.7.1.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/timber-library.1.7.1.zip
 
-# wondermo00ns open graph v2.2.4.2
-RUN wget -q https://downloads.wordpress.org/plugin/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wonderm00ns-simple-facebook-open-graph-tags.2.2.4.2.zip
+# Yoast SEO 8.4
+RUN wget -q https://downloads.wordpress.org/plugin/wordpress-seo.8.4.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wordpress-seo.8.4.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wordpress-seo.8.4.zip
 
 # wp-mail-smtp v1.3.3
 RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.1.3.3.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/wp-mail-smtp.1.3.3.zip

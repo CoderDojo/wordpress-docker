@@ -28,5 +28,13 @@ services:
       WP_S3_REGION: eu-west-1
       WP_S3_URL: https://wp-static.coderdojo.com
       WP_STRIPE_KEY: fundmeimfamous
+      WP_AUTH_KEY: some_auth_key
+      WP_SECURE_AUTH_KEY: some_secure_auth_key
+      WP_LOGGED_IN_KEY: some_logged_in_key
+      WP_NONCE_KEY: some_nonce_key
+      WP_AUTH_SALT: some_auth_salt
+      WP_SECURE_AUTH_SALT: some_secure_auth_salt
+      WP_LOGGED_IN_SALT: some_logged_in_salt
+      WP_NONCE_SALT: some_nonce_salt
 volumes:
   db_data:

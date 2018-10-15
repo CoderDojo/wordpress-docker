@@ -1,5 +1,15 @@
 echo "Extend wp-config"
 
+wp config set AUTH_KEY "$WP_AUTH_KEY" --type=constant --allow-root
+wp config set SECURE_AUTH_KEY "$WP_SECURE_AUTH_KEY" --type=constant --allow-root
+wp config set LOGGED_IN_KEY "$WP_LOGGED_IN_KEY" --type=constant --allow-root
+wp config set NONCE_KEY "$WP_NONCE_KEY" --type=constant --allow-root
+wp config set AUTH_SALT "$WP_AUTH_SALT" --type=constant --allow-root
+wp config set SECURE_AUTH_SALT "$WP_SECURE_AUTH_SALT" --type=constant --allow-root
+wp config set LOGGED_IN_SALT "$WP_LOGGED_IN_SALT" --type=constant --allow-root
+wp config set NONCE_SALT "$WP_NONCE_SALT" --type=constant --allow-root
+echo "Salts and keys set"
+
 wp config set S3_UPLOADS_BUCKET "$WP_S3_BUCKET" --type=constant --allow-root
 wp config set S3_UPLOADS_KEY "${WP_S3_KEY-}" --type=constant --allow-root --quiet
 wp config set S3_UPLOADS_SECRET "${WP_S3_SECRET-}" --type=constant --allow-root --quiet

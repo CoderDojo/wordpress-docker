@@ -48,7 +48,7 @@ wp plugin activate pods --allow-root
 wp plugin activate redirection --allow-root
 wp plugin activate tablepress --allow-root
 wp plugin activate timber-library --allow-root
-wp plugin activate wonderm00ns-simple-facebook-open-graph-tags --allow-root
+wp plugin activate wordpress-seo --allow-root
 wp plugin activate wp-mail-smtp --allow-root
 wp plugin activate sassy-social-share --allow-root
 wp plugin activate sucuri-scanner --allow-root

@@ -54,6 +54,7 @@ COPY .htaccess /usr/src/wordpress/.htaccess
 RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess
 
 RUN mkdir /var/log/sucuri
+RUN touch /var/log/sucuri/sucuri-lastlogins.php
 COPY confs/sucuri-settings.php /var/log/sucuri/sucuri-settings.php
 COPY confs/sucuri-wp-content-htaccess /usr/src/wordpress/wp-content/.htaccess
 COPY confs/sucuri-wp-includes-htaccess /usr/src/wordpress/wp-includes/.htaccess

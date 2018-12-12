@@ -1,3 +1,5 @@
+ErrorDocument 404 https://coderdojo.com/404
+
 # BEGIN WpFastestCache
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -71,6 +73,7 @@
   RewriteEngine On
   RewriteBase /
 
+  # Redir /www to /
   RewriteCond %{REQUEST_URI} ^/start(?:\/?)$
   RewriteRule .* "https://zen.coderdojo.com/start-dojo" [L,R=permanent]
   

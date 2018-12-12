@@ -65,6 +65,7 @@ RUN a2enmod headers
 COPY plugins/activator /usr/src/wordpress/wp-content/plugins/activator
 
 COPY confs/php.ini /usr/local/etc/php/conf.d/php.ini
+COPY confs/000-default.conf /etc/apache2/sites-enabled/000-default.conf
 
 RUN wget -q https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -P ~/tmp
 RUN chmod +x ~/tmp/wp-cli.phar

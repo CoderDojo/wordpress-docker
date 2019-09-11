@@ -46,9 +46,10 @@ RUN wget -q https://downloads.wordpress.org/plugin/wp-mail-smtp.1.3.3.zip -P /us
 # Developer tends to not have the latest version available on a specific URL (other than the latest URL), so make sure the URL exists before updating
 RUN wget -q https://downloads.wordpress.org/plugin/sassy-social-share.3.2.5.zip -P /usr/src/wordpress/wp-content/plugins/ && unzip -qq /usr/src/wordpress/wp-content/plugins/sassy-social-share.3.2.5.zip -d /usr/src/wordpress/wp-content/plugins && rm /usr/src/wordpress/wp-content/plugins/sassy-social-share.3.2.5.zip
 
-# stripe 6.3.0
-RUN wget -q https://github.com/stripe/stripe-php/archive/v6.3.0.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v6.3.0.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v6.3.0.zip
+# stripe 7.0.2
+RUN wget -q https://github.com/stripe/stripe-php/archive/v7.0.2.zip -P /usr/src/wordpress/ && unzip -qq /usr/src/wordpress/v7.0.2.zip -d /usr/src/wordpress/ && rm /usr/src/wordpress/v7.0.2.zip
 COPY plugins/donation/payment.php /usr/src/wordpress/payment.php
+COPY plugins/donation/process-payment.php /usr/src/wordpress/process-payment.php
 
 COPY .htaccess /usr/src/wordpress/.htaccess
 RUN chown "www-data:www-data" /usr/src/wordpress/.htaccess

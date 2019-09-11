@@ -20,11 +20,18 @@ Both instances lives on ECS. ECS requires at least 50% health, you need 2 instan
  - deploy on ECS
 
 ## Deployment
-Currently living on ECS.
- - create a new version of the task called "wordpress-fargate" once the image is published
- - Edit the service in the Cluster "wordpress-single-cluster"
+Currently living on ECS:
+ - Under "Task Definitions" create a new version of the task called "wordpress-fargate" once the image is published (this should bump up the auto-incrementing revision number eg. `wordpress-fargate:xx`)
+ - Edit the service in the Cluster "wordpress-single-cluster" (open the service, hit "Update" top right)
  - Change the revision number to the latest task version
  - Next until the end
+ - The service (Clusters ->  wordpress-single-cluster -> Tasks) should show a new task having been started / provisioned (with the task definition showing the appopriate revision number at the end).
+
+ If it doesn't:
+ - Edit the service and go to the Autoscaling tab, hit "Update" and then skip ahead to "Service Auto Scaling (optional)"
+ - Change Minimum no. of tasks and Desired no. of tasks to `2`
+ - Head back to the "Tasks" tab of the cluster, and now the new task should appear (as above).
+ - Once provisioned / running, scale the cluster back down to `1`, head back to the "Tasks" tab and stop the task with the outdated task definition
  
 ## Refreshin plugin confs
  - sucuri:

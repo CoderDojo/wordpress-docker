@@ -21,9 +21,9 @@ Both instances lives on ECS. ECS requires at least 50% health, you need 2 instan
 
 ## Deployment
 Currently living on ECS:
- - Under "Task Definitions" create a new version of the task called "wordpress-fargate" once the image is published (this should bump up the auto-incrementing revision number eg. `wordpress-fargate:xx`)
+ - Under "Task Definitions" create a new revision of the task called "wordpress-fargate" (`Task Definitions > wordpress-fargate > xx`) once the Docker image is published to DockerHub (this should bump up the auto-incrementing revision number eg. `wordpress-fargate:xx`)
  - Edit the service in the Cluster "wordpress-single-cluster" (open the service, hit "Update" top right)
- - Change the revision number to the latest task version
+ - Change the revision number to the latest task revision
  - Next until the end
  - The service (Clusters ->  wordpress-single-cluster -> Tasks) should show a new task having been started / provisioned (with the task definition showing the appopriate revision number at the end).
 

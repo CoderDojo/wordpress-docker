@@ -1,4 +1,4 @@
-# wordpress-docker
+# This repo is now archived -- wordpress-docker
 Image to setup wordpress in production with versioned plugins
 
 ## User
